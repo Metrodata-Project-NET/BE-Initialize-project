@@ -1,6 +1,7 @@
 package com.metrodata.initialize_project.controller;
 
 import com.metrodata.initialize_project.entity.User;
+import com.metrodata.initialize_project.model.MessageResponse;
 import com.metrodata.initialize_project.model.UserRequest;
 import com.metrodata.initialize_project.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<User>> getUser() {
+    public ResponseEntity<MessageResponse<Object>> getUser() {
         return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 

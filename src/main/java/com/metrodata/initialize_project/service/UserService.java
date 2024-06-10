@@ -1,6 +1,7 @@
 package com.metrodata.initialize_project.service;
 
 import com.metrodata.initialize_project.entity.User;
+import com.metrodata.initialize_project.model.MessageResponse;
 import com.metrodata.initialize_project.model.UserRequest;
 import com.metrodata.initialize_project.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -16,8 +17,17 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    public List<User> getAll(){
-        return userRepository.findAll();
+    public MessageResponse<Object> getAll(){
+//        MessageResponse messageResponse = new MessageResponse();
+//        messageResponse.setMessage("Get all users");
+//        messageResponse.setCode(200);
+//        messageResponse.setData(userRepository.findAll());
+        MessageResponse<Object> getAllUsers = MessageResponse.builder()
+                .message("Get All Users")
+                .code(200)
+                .data(userRepository.findAll())
+                .build();
+        return getAllUsers;
     }
 
     public User create(UserRequest userRequest){
