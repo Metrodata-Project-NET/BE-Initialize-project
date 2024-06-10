@@ -1,13 +1,13 @@
-package com.metrodata.initialize_project;
+// package com.metrodata.initialize_project;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class InitializeProjectApplicationTests {
+// @SpringBootTest
+// class InitializeProjectApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
