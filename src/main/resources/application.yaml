@@ -1,0 +1,15 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+#    ${DB_HOST}:localhost
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/db_refreshment_java
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
