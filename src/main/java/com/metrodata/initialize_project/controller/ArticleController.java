@@ -26,7 +26,7 @@ public class ArticleController {
         return articleService.getAll();
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public Article create(@RequestBody Article article) {
         return articleService.createArticle(article);
     }
