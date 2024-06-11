@@ -2,8 +2,10 @@ package com.metrodata.initialize_project.service;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
+// import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.metrodata.initialize_project.entity.Article;
 import com.metrodata.initialize_project.repository.ArticleRepository;
@@ -18,7 +20,10 @@ public class ArticleService {
 
     public List<Article> getAll() {
         return articleRepository.findAll();
-
+    }
+    public Article getByIdArticle (Long id) {
+        return articleRepository.findById(id)
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "schedule not found"));
     }
 
     public Article createArticle(Article article) {
@@ -26,6 +31,20 @@ public class ArticleService {
         article.setBanner(article.getBanner());
         article.setBody(article.getBody());
         return articleRepository.save(article);
+    }
+    public Article updateArticle (Article article, Long id){
+        getByIdArticle(id);
+        article.setId(id);
+        // article.setTitle(getByIdArticle(id).getTitle());
+        // article.setBody(getByIdArticle(id).getBody());
+        // article.setBanner(getByIdArticle(id).getBanner());
+        return articleRepository.save(article);
+    }
+
+    public Article deleteByIdArticle (Long id){
+        Article article = getByIdArticle(id);
+        articleRepository.delete(article);;
+        return article;
     }
 
 }
