@@ -23,5 +23,5 @@ public class Categories {
     private int id;
 
     @Column(nullable = false)
-    private String username;
+    private String name;
 }
