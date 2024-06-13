@@ -24,10 +24,10 @@ public class CategoriesService {
         return categoriesRepository.findAll();
     }
 
-    // public List<Article> findArticlesByCategories (Long id) {
-    //     Optional <Categories> categoriesId  = categoriesRepository.findById(id);
-    //     return categoriesId.get().getArticles();
-    // }
+    public List<Article> findArticlesByCategories (Long id) {
+        Optional <Categories> categoriesId  = categoriesRepository.findById(id);
+        return categoriesId.get().getArticles();
+    }
 
 
     public Categories getByIdCategories(Long id) {

@@ -18,30 +18,29 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table (name = "tb_m_article")
+@Table(name = "tb_m_article")
 public class Article {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String title;
-    
-    @Column (nullable = false)
+
+    @Column(nullable = false)
     private String body;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String banner;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(mappedBy = "articles", fetch = FetchType.EAGER)
     private List<Categories> categorieses;
-    
+
 }
