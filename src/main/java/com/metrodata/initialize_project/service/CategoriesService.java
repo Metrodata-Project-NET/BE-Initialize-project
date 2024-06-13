@@ -1,6 +1,7 @@
 package com.metrodata.initialize_project.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,12 @@ public class CategoriesService {
     public List<Categories> getAll() {
         return categoriesRepository.findAll();
     }
+
+    // public List<Article> findArticlesByCategories (Long id) {
+    //     Optional <Categories> categoriesId  = categoriesRepository.findById(id);
+    //     return categoriesId.get().getArticles();
+    // }
+
 
     public Categories getByIdCategories(Long id) {
         return categoriesRepository.findById(id)
