@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -40,7 +41,11 @@ public class Article {
     private String banner;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToMany(mappedBy = "articles", fetch = FetchType.EAGER)
-    private List<Categories> categorieses;
+    @OneToMany(mappedBy = "articleId")
+    private List<ArticleCategories> articleCategories;
+
+    // @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    // @ManyToMany(mappedBy = "articles", fetch = FetchType.EAGER)
+    // private List<Categories> categorieses;
 
 }

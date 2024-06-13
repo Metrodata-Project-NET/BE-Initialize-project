@@ -23,7 +23,7 @@ public class ArticleService {
     }
     public Article getByIdArticle (Long id) {
         return articleRepository.findById(id)
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "schedule not found"));
+        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "id not found"));
     }
 
     public Article createArticle(Article article) {

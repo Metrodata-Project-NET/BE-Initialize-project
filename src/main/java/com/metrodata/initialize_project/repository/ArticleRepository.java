@@ -6,4 +6,5 @@ import com.metrodata.initialize_project.entity.Article;
 
 public interface ArticleRepository extends JpaRepository <Article, Long> {
 
+    
 }

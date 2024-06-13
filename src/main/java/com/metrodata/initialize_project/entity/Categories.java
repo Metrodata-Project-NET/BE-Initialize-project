@@ -4,8 +4,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,10 +39,15 @@ public class Categories {
     @Column(nullable = false)
     private String name;
 
-    @JoinTable(name = "tb_tr_article_categories", joinColumns = {
-            @JoinColumn(name = "categories_id", referencedColumnName = "id") }, inverseJoinColumns = {
-                    @JoinColumn(name = "article_id", referencedColumnName = "id") })
-    @ManyToMany
-    private List<Article> articles;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "categoriesId")
+    private List<ArticleCategories> articleCategories;
+
+    // @JoinTable(name = "tb_tr_article_categories", joinColumns = {
+    //         @JoinColumn(name = "categories_id", referencedColumnName = "id") }, inverseJoinColumns = {
+    //                 @JoinColumn(name = "article_id", referencedColumnName = "id") })
+    // @ManyToMany
+    // private List<Article> articles;
 
 }
