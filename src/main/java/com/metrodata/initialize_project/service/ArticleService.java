@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.metrodata.initialize_project.entity.Article;
+import com.metrodata.initialize_project.entity.Categories;
 import com.metrodata.initialize_project.repository.ArticleRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -27,9 +28,10 @@ public class ArticleService {
     }
 
     public Article createArticle(Article article) {
-        article.setTitle(article.getTitle());
-        article.setBanner(article.getBanner());
-        article.setBody(article.getBody());
+       
+        // article.setTitle(article.getTitle());
+        // article.setBanner(article.getBanner());
+        // article.setBody(article.getBody());
         return articleRepository.save(article);
     }
     public Article updateArticle (Article article, Long id){

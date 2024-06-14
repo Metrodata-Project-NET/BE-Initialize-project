@@ -36,7 +36,7 @@ public class CategoriesService {
     }
 
     public Categories createCategoriesArticle(Categories categories) {
-        categories.setName(categories.getName());
+        // categories.setName(categories.getName());
         return categoriesRepository.save(categories);
     }
 
